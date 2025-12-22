@@ -4773,7 +4773,7 @@ struct ImportedUniverse<O, I> {
 impl<'c, S: MaybeTotalScope, T> InnerUniverse for ImportedUniverse<S, Child<'c, S, T>>
 where
     T: Refines<S::MaybeTotalTimestamp> + Lattice,
-    Child<'c, S, T>: MaybeTotalScope,
+    Child<'c, S, T>: MaybeTotalScope<MaybeTotalTimestamp = T>,
 {
     type Outer = S;
     type Inner = Child<'c, S, T>;
@@ -4910,7 +4910,7 @@ struct ImportedColumn<O, I> {
 impl<'c, S: MaybeTotalScope, T> InnerColumn for ImportedColumn<S, Child<'c, S, T>>
 where
     T: Refines<S::MaybeTotalTimestamp> + Lattice,
-    Child<'c, S, T>: MaybeTotalScope,
+    Child<'c, S, T>: MaybeTotalScope<MaybeTotalTimestamp = T>,
 {
     type Outer = S;
     type Inner = Child<'c, S, T>;
@@ -4959,7 +4959,7 @@ struct IteratedColumn<O, I: MaybeTotalScope> {
 impl<'c, S: MaybeTotalScope, T> InnerColumn for IteratedColumn<S, Child<'c, S, T>>
 where
     T: Refines<S::MaybeTotalTimestamp> + Lattice,
-    Child<'c, S, T>: MaybeTotalScope,
+    Child<'c, S, T>: MaybeTotalScope<MaybeTotalTimestamp = T>,
 {
     type Outer = S;
     type Inner = Child<'c, S, T>;
