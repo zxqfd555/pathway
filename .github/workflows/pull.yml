@@ -14,7 +14,6 @@ jobs:
       - uses: actions/setup-python@v4
         with:
           python-version: 3.11
-
       - run: python -m pip install --upgrade pip && pip install black==24.10.0
       - run: black . --check
 
@@ -23,25 +22,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions/setup-python@v4
         with:
           python-version: 3.11
-
       - run: python -m pip install --upgrade pip && pip install flake8
       - run: flake8
+
+  python-mypy:
+    name: 🐍 mypy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      - run: python -m pip install --upgrade pip && pip install mypy==1.10.1
+      - run: mypy .
 
   cargo-fmt:
     name: 🦀 cargo fmt
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: 1.92.0
           override: true
-
       - run: rustup component add rustfmt
       - run: cargo fmt -- --check
 
@@ -50,11 +56,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: 1.92.0
           override: true
-
       - run: rustup component add clippy
       - run: cargo clippy --locked --all-targets -- --deny warnings
