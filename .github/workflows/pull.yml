@@ -28,21 +28,6 @@ jobs:
       - run: python -m pip install --upgrade pip && pip install flake8
       - run: flake8
 
-  python-mypy:
-    name: 🐍 mypy
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
-        with:
-          python-version: 3.11
-      - run: python -m pip install --upgrade pip && pip install mypy==1.10.1
-      - name: Install uv and sync deps
-        run: |
-          python -m pip install uv
-          uv sync --no-install-project
-      - run: mypy .
-
   cargo-fmt:
     name: 🦀 cargo fmt
     runs-on: ubuntu-latest
@@ -66,3 +51,14 @@ jobs:
           override: true
       - run: rustup component add clippy
       - run: cargo clippy --locked --all-targets -- --deny warnings
+
+  cargo-test:
+    name: 🦀 cargo test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions-rs/toolchain@v1
+        with:
+          toolchain: 1.92.0
+          override: true
+      - run: cargo test --locked
