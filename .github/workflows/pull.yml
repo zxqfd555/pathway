@@ -54,7 +54,7 @@ jobs:
             types-protobuf \
             types-python-dateutil
       - name: Run mypy
-        run: uvx mypy .
+        run: uv run mypy .
 
   cargo-fmt:
     name: 🦀 cargo fmt
