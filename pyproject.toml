@@ -157,3 +157,13 @@ check_untyped_defs = true
 warn_redundant_casts = true
 warn_unused_ignores = true
 strict_equality = true
+
+[tool.isort]
+profile = "black"
+skip = [
+    "target",
+    "docs",
+    "third_party",
+]
+known_first_party = ["pathway", "common", "projects"]
+combine_as_imports = true
