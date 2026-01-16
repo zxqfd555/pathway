@@ -54,9 +54,10 @@ jobs:
             types-requests \
             types-simplejson \
             types-protobuf \
-            types-python-dateutil
+            types-python-dateutil \
+            pandas-stubs
       - name: Run mypy
-        run: mypy --no-warn-unused-ignores .
+        run: mypy .
 
   cargo-fmt:
     name: 🦀 cargo fmt
