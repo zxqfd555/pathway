@@ -11,7 +11,6 @@
 
 import tomllib
 
-
 if __name__ == "__main__":
     with open("pyproject.toml", "rb") as f:
         pyproject = tomllib.load(f)
