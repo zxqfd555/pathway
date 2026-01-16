@@ -46,6 +46,7 @@ jobs:
         run: uv sync --no-install-project
       - name: Install type stubs
         run: |
+          uv pip install mypy
           uv pip install \
             types-pytz \
             types-PyYAML \
