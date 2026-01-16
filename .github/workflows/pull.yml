@@ -44,6 +44,15 @@ jobs:
         run: python -m pip install --upgrade pip && pip install uv
       - name: Sync dependencies
         run: uv sync --no-install-project
+      - name: Install type stubs
+        run: |
+          uv pip install \
+            types-pytz \
+            types-PyYAML \
+            types-requests \
+            types-simplejson \
+            types-protobuf \
+            types-python-dateutil
       - name: Run mypy
         run: uvx mypy .
 
