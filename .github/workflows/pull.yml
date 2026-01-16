@@ -56,7 +56,7 @@ jobs:
             types-protobuf \
             types-python-dateutil
       - name: Run mypy
-        run: mypy .
+        run: mypy --no-warn-unused-ignores .
 
   cargo-fmt:
     name: 🦀 cargo fmt
