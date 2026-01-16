@@ -13,5 +13,3 @@ for group_deps in optional_deps_dict.values():
 deps = [d for d in deps if not d.startswith("pathway")]
 with open("requirements.txt", "w") as f:
     f.write("\n".join(deps))
-
-
