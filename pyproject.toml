@@ -165,5 +165,5 @@ skip = [
     "docs",
     "third_party",
 ]
-known_first_party = ["pathway", "common", "projects"]
+known_first_party = ["pathway"]
 combine_as_imports = true
