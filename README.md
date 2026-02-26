@@ -78,7 +78,6 @@ With its unified engine for batch and streaming and its full Python compatibilit
 - [Docs: Switch from batch to streaming.](https://pathway.com/developers/user-guide/connecting-to-data/switch-from-batch-to-streaming)
 
 
-
 ### AI Pipelines
 
 Pathway provides dedicated LLM tooling to build live LLM and RAG pipelines. Wrappers for most common LLM services and utilities are included, making working with LLMs and RAGs pipelines incredibly easy. Check out our [LLM xpack documentation](https://pathway.com/developers/user-guide/llm-xpack/overview).
